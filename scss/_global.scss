@@ -1,16 +1,90 @@
 /* --------------------------------------------------------------------------------------- */
 /* Master styles ---------------------------------------------- */
 /* --------------------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Regular.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Regular.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Regular.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Regular.svg#BarlowCondensed-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Italic.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Italic.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Italic.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Italic.svg#BarlowCondensed-Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Bold.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Bold.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Bold.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Bold.svg#BarlowCondensed-Bold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-BoldItalic.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-BoldItalic.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-BoldItalic.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-BoldItalic.svg#BarlowCondensed-BoldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-ExtraBold.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-ExtraBold.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-ExtraBold.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-ExtraBold.svg#BarlowCondensed-ExtraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'barlow-condensed';
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Black.eot');
+    src: url('../fonts/barlow-condensed/BarlowCondensed-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Black.woff2') format('woff2'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Black.woff') format('woff'),
+        url('../fonts/barlow-condensed/BarlowCondensed-Black.svg#BarlowCondensed-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Master styles ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
 * {
     @include box-sizing('border-box');
     &::selection {
-        background-color: rgba($secondary, 0.5);
+        background-color: rgba($primary, 0.5);
     }
 }
 .bg-primary *::selection {color: $white;}
-.bg-secondary *::selection {background-color: $white; color: $secondary;}
-.bg-tertiary *::selection {background-color: rgba($secondary, 0.75); color: $white;}
-.bg-black *::selection {background-color: rgba($secondary, 0.75); color: $white;}
+.bg-black *::selection {background-color: rgba($primary, 0.75); color: $white;}
 
 html {
   overflow-y: scroll; 
@@ -23,9 +97,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: $body;
-  font-size: 18px;
-  line-height: 1.6em;
+  font-family: 'barlow-condensed';
+  font-size: 24px;
+  line-height: $lineheight;
   font-weight: 400;
   background: $black;
   color: $black;
@@ -67,14 +141,12 @@ section, div {position: relative; display: block;}
 .bg-primary {background: $primary; color: $white;}
 .bg-grey {background: $grey; color: $white;}
 .bg-black {background: $black; color: $white;}
-.bg-secondary {background: $secondary; color: $white;}
 
 section.bg-white + section.bg-white {padding-top: 0;}
 section.bg-light + section.bg-light {padding-top: 0;}
 section.bg-grey + section.bg-grey {padding-top: 0;}
 section.bg-black + section.bg-black {padding-top: 0;}
 section.bg-primary + section.bg-primary {padding-top: 0;}
-section.bg-secondary + section.bg-secondary {padding-top: 0;}
 
 .border-bottom {border-bottom: 1px solid;}
 .border-top {border-top: 1px solid;}
@@ -86,7 +158,6 @@ section.bg-secondary + section.bg-secondary {padding-top: 0;}
 .border-white {border-color: $white;}
 .border-primary {border-color: $primary;}
 .border-black {border-color: $black;}
-.border-secondary {border-color: $secondary;}
 
 .xsmall-padding {padding-top: 2vw; padding-bottom: 2vw;}
 .xsmall-padding-top {padding-top: 2vw;}
@@ -128,7 +199,7 @@ p:last-child {margin-bottom: 0;}
 
 .white-text {color: $white;}
 .black-text {color: $black;}
-.highlight {color: $secondary !important;}
+.highlight {color: $primary !important;}
 
 h1, h2, h3, h4, h5, h6 {
   position: relative;
@@ -140,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.25s ease;
 }
 .bg-black h1, .bg-black h2, .bg-black h3, .bg-black h4 {color: $white;}
-.bg-secondary h1, .bg-secondary h2, .bg-secondary h3, .bg-secondary h4 {color: $white;}
+.bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4 {color: $white;}
 
 h1, h2 {margin-bottom: 24px;}
 h3 {margin-bottom: 12px;}
@@ -155,7 +226,7 @@ h5 + h2, h5 + h3, h5 + h4, h5 + h6,
 h6 + h2, h6 + h3, h6 + h4, h6 + h5 {
   margin-top: 0;
 }
-h1, h2 {font-size: 3.5em; line-height: 1em; font-family: $heading;}
+h1, h2 {font-size: 3.5em; line-height: 1em;}
 .long-text h2 {font-size: 2.5em;}
 h3 {font-size: 1.65em; line-height: 1.15em;}
 h4 {font-size: 1.35em; line-height: 1.25em;}
@@ -181,7 +252,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 h2 + ul, h3 + ul, h4 + ul,
 h2 + ol, h3 + ol, h4 + ol {margin-top: 0 !important;}
 
-.caption {margin-bottom: 16px; font-family: $body; text-transform: uppercase; font-weight: 300;}
+.caption {margin-bottom: 16px; text-transform: uppercase; font-weight: 300;}
 .caption:last-child {margin-bottom: 0;}
 
 
@@ -214,11 +285,6 @@ ol li:last-child {margin-bottom: 0;}
 }
 .long-text ul ul {margin-top: 5px;}
 
-.bg-secondary .long-text ul li:before,
-.bg-secondary.long-text ul li:before {filter: brightness(0.1);}
-.bg-tertiary .long-text ul li:before,
-.bg-tertiary.long-text ul li:before {filter: brightness(10);}
-
 
 /* OL styles ---------------------------------------------- */
 ol {counter-reset: item; list-style: none;}
@@ -236,9 +302,7 @@ ol li:before {
 .long-text ol ol {margin-top: 5px;}
 .long-text ol ol li:before {margin-left: -40px;}
 
-.bg-primary ol li:before,
-.bg-secondary ol li:before {color: $black;}
-.bg-tertiary ol li:before {color: $white;}
+.bg-primary ol li:before {color: $black;}
 .bg-black ol li:before {color: $primary;}
 
 
@@ -264,12 +328,8 @@ a:hover {
 }
 .bg-primary a {color: $white;}
 .bg-primary a:hover {color: $white;}
-.bg-secondary a {color: $black;}
-.bg-secondary a:hover {color: $white;}
-.bg-tertiary a {color: $primary;}
-.bg-tertiary a:hover {color: $white;}
 .bg-black a {color: $primary;}
-.bg-black a:hover {color: $secondary;}
+.bg-black a:hover {color: $primarydark;}
 
 
 /* Paragraph Links ---------------------------------------------- */
@@ -277,35 +337,20 @@ a:hover {
   position: relative;
   color: $black;
   border-bottom: 4px solid transparent;
-  background-image: linear-gradient($secondary,$secondary);
+  background-image: linear-gradient($primary,$primary);
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: left calc(100% + 1px);
 }
-.long-text a:not(.button):hover {color: $secondary; background-position: left calc(100% + 4px);}
+.long-text a:not(.button):hover {color: $primary; background-position: left calc(100% + 4px);}
 
 .bg-black .long-text a:not(.button),
 .bg-black.long-text a:not(.button) {color: $white;}
-
-.bg-secondary .long-text a:not(.button),
-.bg-secondary.long-text a:not(.button) {background-image: linear-gradient($black,$black);}
-.bg-secondary .long-text a:not(.button):hover,
-.bg-secondary.long-text a:not(.button):hover {color: $black;}
 
 .bg-primary .long-text a:not(.button),
 .bg-primary.long-text a:not(.button) {background-image: linear-gradient($black,$black);}
 .bg-primary .long-text a:not(.button):hover,
 .bg-primary.long-text a:not(.button):hover {color: $black;}
-
-.bg-tertiary .long-text a:not(.button),
-.bg-tertiary.long-text a:not(.button) {background-image: linear-gradient($white,$white);}
-.bg-tertiary .long-text a:not(.button),
-.bg-tertiary.long-text a:not(.button) {color: $white;}
-.bg-tertiary .long-text a:not(.button):hover,
-.bg-tertiary.long-text a:not(.button):hover {color: $white;}
-
-
-
 
 
 /* Buttons ---------------------------------------------- */
@@ -333,7 +378,6 @@ a.button {
   border-radius: 0;
   background: $primary;
   box-shadow: 0 5px 0 rgba($grey,1);
-  font-family: $heading;
   font-size: 1.45em;
   font-weight: 700;
   color: $white;
@@ -352,10 +396,8 @@ a.button:hover {background: transparent; color: $primary;}
 .buttons-wrapper.right-buttons a.button {margin: 3px 0 3px 12px;}
 
 .bg-primary a.button:hover {border-color: $white; background: $primary; color: $white;}
-.bg-black a.button {border-color: $secondary; background: $secondary; color: $white;}
-.bg-black a.button:hover {background: $black; color: $secondary;}
-.bg-secondary a.button {border-color: $white; background: $white; color: $secondary;}
-.bg-secondary a.button:hover {background: $secondary; color: $white;}
+.bg-black a.button {border-color: $primary; background: $primary; color: $white;}
+.bg-black a.button:hover {background: $black; color: $primary;}
 
 
 

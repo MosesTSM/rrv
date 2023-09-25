@@ -63,10 +63,10 @@ function custom_loginlogo() {
     echo '<style type="text/css">
         body.login {background: #000700;}
         body.login div#login h1 a {
-            background-image: url('.get_bloginfo("template_directory").'/images/login-est2013.png) !important;
+            background-image: url('.get_bloginfo("template_directory").'/images/login.png) !important;
             background-size: contain;
-            width: 180px;
-            height: 180px;
+            width: 203px;
+            height: 88px;
         }
         body.login #loginform {
             background: #222222;
@@ -107,14 +107,14 @@ add_theme_support( 'post-thumbnails' );
 // ----------------------------------------------------------------------------------------
 // Register Menus
 // ----------------------------------------------------------------------------------------
-function register_theme_menus() {
+/* function register_theme_menus() {
 	register_nav_menus(
 		array(
 			'primary-nav' 	=> __( 'Primary Nav' )
 		)
 	);
 }
-add_action( 'init', 'register_theme_menus' );
+add_action( 'init', 'register_theme_menus' ); */
 
 
 // ----------------------------------------------------------------------------------------
@@ -136,69 +136,22 @@ if( function_exists('acf_add_options_page') ) {
 // ----------------------------------------------------------------------------------------
 // CSS
 // ----------------------------------------------------------------------------------------
-function tsm_theme_styles() {
+function rrv_theme_styles() {
     wp_enqueue_style( 'main_css', get_template_directory_uri() . '/css/screen.css' );
 }
-add_action( 'wp_enqueue_scripts', 'tsm_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'rrv_theme_styles' );
 
 
 // ----------------------------------------------------------------------------------------
 // JS
 // ----------------------------------------------------------------------------------------
-function tsm_theme_js() {
+function rrv_theme_js() {
 	wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'cookie_js', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '', true );
 	wp_enqueue_script( 'foundation_js', get_template_directory_uri() . '/js/foundation.min.js', array('jquery'), '', true );
     wp_enqueue_script( 'scripts_js', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'foundation_js'), '', true );
 }
-add_action( 'wp_enqueue_scripts', 'tsm_theme_js' );
-
-
-// ----------------------------------------------------------------------------------------
-// Gravity Forms - add MFGs to dynamic field
-// ----------------------------------------------------------------------------------------
-add_filter( 'gform_pre_render_1', 'populate_checkbox' );
-add_filter( 'gform_pre_validation_1', 'populate_checkbox' );
-add_filter( 'gform_pre_submission_filter_1', 'populate_checkbox' );
-add_filter( 'gform_admin_pre_render_1', 'populate_checkbox' );
-function populate_checkbox( $form ) {
-    if ( empty( $form['id'] ) ) {
-        return $form;
-    }
- 
-    foreach( $form['fields'] as &$field )  {
- 
-        //NOTE: replace 3 with your checkbox field id
-        $field_id = 19;
-        if ( $field->id != $field_id ) {
-            continue;
-        }
- 
-        // you can add additional parameters here to alter the posts that are retrieved
-        // more info: http://codex.wordpress.org/Template_Tags/get_posts
-        $posts = get_posts( 'numberposts=-1&post_status=publish&category_name=mfgs' );
-        $input_id = 1;
- 
-        foreach( $posts as $post ) {
- 
-            //skipping index that are multiples of 10 (multiples of 10 create problems as the input IDs)
-            if ( $input_id % 10 == 0 ) {
-                $input_id++;
-            }
- 
-            $choices[] = array( 'text' => $post->post_title, 'value' => $post->post_title );
-            $inputs[] = array( 'label' => $post->post_title, 'id' => "{$field_id}.{$input_id}" );
- 
-            $input_id++;
-        }
- 
-        $field->choices = $choices;
-        $field->inputs = $inputs;
- 
-    }
- 
-    return $form;
-}
+add_action( 'wp_enqueue_scripts', 'rrv_theme_js' );
 
 
 

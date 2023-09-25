@@ -1,6 +1,6 @@
 		</main>
 
-		<footer class="scroll-section bg-black small-padding small-text">
+		<footer id="footer" class="scroll-section bg-black small-padding small-text">
 			<div class="wrapper footer-wrapper center-align">
 				<a href="<?php bloginfo('url'); ?>/" class="footer-logo-link">
 					<?php get_template_part('inc/icon'); ?>

@@ -28,7 +28,7 @@
 </head>
 
 
-<body <?php body_class($post->post_name); ?> >
+<body>
 
 
 	<div class="mobile-overlay">
@@ -38,31 +38,27 @@
 		</div>
 	</div>
 	<div class="overlay-menu">
-		<?php $defaults = array(
-			'container' => false,
-			'theme_location' => 'primary-nav',
-			'menu_id' => 'mobile-main-menu'
-		);
-		wp_nav_menu( $defaults ); ?>
+		<a href="<?php the_permalink(); ?>/about/">About Us</a>
+		<a href="#footer">Get in Touch</a>
+		<a href="https://thunderstruckag.com/category/products/rrv-canola-disk/" target="_blank">Shop Now</a>
+		<?php if( get_field('phone','option') ): ?>
+			<a href="tel:<?php the_field('phone','option'); ?>"><?php the_field('phone','option'); ?></a>
+		<?php endif; ?>
 	</div>
 
 
 	<div id="container">
 		<header>
-			<a href="<?php bloginfo('url'); ?>/" class="header-logo-link">
-				<?php get_template_part('inc/logo'); ?>
-			</a>
-
 			<nav>
-				<?php
-					$defaults = array(
-						'container' => false,
-						'theme_location' => 'primary-nav',
-						'menu_id' => 'main-menu'
-					);
-
-					wp_nav_menu( $defaults );
-				?>
+				<a class="nav-item" href="<?php the_permalink(); ?>/about/">About Us</a>
+				<a class="nav-item" href="#footer">Get in Touch</a>
+				<a href="<?php bloginfo('url'); ?>/" class="header-logo-link">
+					<?php get_template_part('inc/logo'); ?>
+				</a>
+				<a class="nav-item" href="https://thunderstruckag.com/category/products/rrv-canola-disk/" target="_blank">Shop Now</a>
+				<?php if( get_field('phone','option') ): ?>
+					<a class="nav-item" href="tel:<?php the_field('phone','option'); ?>"><?php the_field('phone','option'); ?></a>
+				<?php endif; ?>
 			</nav>
 
 			<div class="hamburger">

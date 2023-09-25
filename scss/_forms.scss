@@ -93,7 +93,7 @@
 #container .gfield--type-email input:focus,
 #container .gfield--type-phone input:focus,
 #container .gfield--type-textarea textarea:focus {
-  background: rgba($secondary, 0.125);
+  background: rgba($primary, 0.125);
 }
 #container input[type=color]:focus, 
 #container input[type=date]:focus, 
@@ -125,7 +125,7 @@
 #container .bg-black input[type=url]:focus, 
 #container .bg-black input[type=week]:focus, 
 #container .bg-black select:focus {
-  border-color: $secondary;
+  border-color: $primary;
 }
 
 #container .gfield--type-textarea textarea:focus-visible {
@@ -386,7 +386,6 @@
   text-align: center;
 }
 #container .gform_wrapper.gravity-theme .gform_validation_errors h2 {
-  font-family: $body;
   font-style: normal;
   color: $primary;
 }
