@@ -1,0 +1,32 @@
+// Colours
+$primary: #c10230;
+$primarydark: #414141;
+$secondary: #b87e5c;
+$black: #000700;
+$grey: #a4a7a9;
+$light: #f2f2f2;
+$white: #ffffff;
+
+$warning: #c10230;
+$caution: #E0B43E;
+$success: #005C51;
+
+// Fonts
+$heading: "urw-din-condensed", sans-serif;
+$body: "urw-din", sans-serif;
+$smallfont: 0.85em;
+$xsmallfont: 0.7em;
+$lineheight: 1.5em;
+
+@import "compass/css3";
+@import 'reset';
+@import 'global';
+@import 'forms';
+@import 'logos';
+@import 'header';
+@import 'specifics';
+@import 'footer';
+@import 'print';
+
+// Get Adobe Typekit fonts
+@import url("https://use.typekit.net/hyk6lcf.css");

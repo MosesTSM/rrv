@@ -1,0 +1,295 @@
+/* --------------------------------------------------------------------------------------- */
+/* HEADER ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+header {
+	position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+	width: 100%;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* HEADER LOGO ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+header .header-logo-link,
+header .tsm-logo {
+  position: relative;
+  display: block;
+  width: 188.27px;
+  height: 42px;
+}
+header .header-logo-link {padding: 10px;}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* HEADER NAV ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+header nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate3d(0,-60px,0);
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+header ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+header ul li {display: inline-block;}
+header ul li a {
+  display: block;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $black;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1em;
+}
+header ul li a:hover {
+  padding-top: 28px; 
+  padding-bottom: 12px;
+  color: $black;
+}
+
+header ul li a:before,
+header ul li a:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  display: block;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+header ul li a:before {
+  top: 0;
+  width: 2px;
+  height: calc(50% - 8px);
+  background: $primary;
+  transform-origin: top center;
+  transform: translate3d(-50%,0,0) scaleY(0);
+}
+header ul li a:hover:before {transform: translate3d(-50%,0,0) scaleY(1);}
+header ul li a:after {
+  bottom: 0;
+  width: 0; 
+  height: 0; 
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid $primary;
+  transform-origin: bottom center;
+  transform: translate3d(-50%,12px,0) scale(0);
+}
+header ul li a:hover:after {transform: translate3d(-50%,2px,0) scale(1);}
+
+header.header-on-black ul li a {color: $white;}
+header.scrolled-header ul li a {}
+
+
+
+/* --------------------------------------------------------------------------------------- */
+/* MOBILE ADJUSTMENTS ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+.mobile-overlay {display: none;}
+.mobile-nav-controls {display: none;}
+.responsive-menu {display: none;}
+
+.mobile-site header .hamburger,
+.scrolled-page header .hamburger {transform: translate3d(0,0,0);}
+.desktop-site:not(.scrolled-page) header nav {transform: translate3d(0,0,0);}
+
+
+/* --------------------------------------------------------------------------------------- */
+/* Mobile Nav ---------------------------------------------- */
+/* --------------------------------------------------------------------------------------- */
+/* hamburger ------------------------- */
+.hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1100;
+  width: 80px;
+  height: 50px;
+  margin-right: 20px;
+  transform: translate3d(120px,0,0);
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.hamburger div {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 1px;
+  background: $black;
+}
+.hamburger:hover div {width: 100%;}
+header.header-on-black .hamburger div {background: $white;}
+.hamburger div.bun-top {
+  bottom: 30px;
+  -webkit-transition: width 1s ease;
+  -moz-transition: width 1s ease;
+  -o-transition: width 1s ease;
+  transition: width 1s ease;
+}
+.hamburger div.meat {
+  bottom: 19px;
+  -webkit-transition: width 1s ease 0.25s;
+  -moz-transition: width 1s ease 0.25s;
+  -o-transition: width 1s ease 0.25s;
+  transition: width 1s ease 0.25s;
+}
+.hamburger div.bun-bottom {
+  bottom: 8px;
+  -webkit-transition: width 1s ease 0.5s;
+  -moz-transition: width 1s ease 0.5s;
+  -o-transition: width 1s ease 0.5s;
+  transition: width 1s ease 0.5s;
+}
+
+/* Close nav button ------------------------- */
+.close-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  display: block;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.close-nav span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: $white;
+}
+.close-nav span:first-child {transform: translate3d(-50%,-50%,0) rotate(45deg);}
+.close-nav span:last-child {transform: translate3d(-50%,-50%,0) rotate(-45deg);}
+
+
+/* mobile menu active ------------------------- */
+.mobile-overlay,
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+}
+.mobile-overlay {
+  z-index: 1000;
+  height: 200%;
+  background: rgba($primary,1);
+  transform-origin: left top;
+  transform: translate3d(50%,-100%,0) rotate(-90deg) scale(2);
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  -o-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+}
+.mobile-overlay-on {transform: translate3d(0,0,0) rotate(0deg) scale(1);}
+
+.overlay-menu {
+  z-index: 1100;
+  overflow: hidden;
+  height: 100%;
+  pointer-events: none;
+}
+.overlay-menu.show-overlay-menu {}
+
+
+/* main mobile menu list stying ------------------------- */
+ul#mobile-main-menu {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 100%;
+  transform: translate3d(0,-50%,0);
+  pointer-events: none;
+}
+.overlay-menu.show-overlay-menu ul#mobile-main-menu {pointer-events: initial;}
+ul#mobile-main-menu li {
+  position: relative;
+  display: block;
+}
+ul#mobile-main-menu li.mobile-item-slide {}
+ul#mobile-main-menu li:hover {}
+ul#mobile-main-menu li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba($black,0.25);
+  transform-origin: center center;
+  transform: scaleY(0);
+  -webkit-transition: transform 1s ease;
+  -moz-transition: transform 1s ease;
+  -o-transition: transform 1s ease;
+  transition: transform 1s ease;
+}
+ul#mobile-main-menu li:hover:after {transform: scaleY(1);}
+ul#mobile-main-menu li a {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 8px 24px 12px;
+  transform: skew(0deg);
+  opacity: 0;
+  color: $white;
+  font-family: $heading;
+  font-size: 32px;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-indent: -100px;
+  -webkit-text-stroke-width: 0.02em;
+  -webkit-text-stroke-color: rgba($white,1);
+  -webkit-transition: padding 0.5s ease, transform 0.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 0.5s ease;
+  -moz-transition: padding 0.5s ease, transform 0.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 0.5s ease;
+  -o-transition: padding 0.5s ease, transform 0.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 0.5s ease;
+  transition: padding 0.5s ease, transform 0.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 0.5s ease;
+}
+ul#mobile-main-menu li a:hover {
+  padding-left: 34px;
+  transform: skew(-18deg);
+  color: transparent;
+  -webkit-transition: padding 2.5s ease, transform 2.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 2.5s ease;
+  -moz-transition: padding 2.5s ease, transform 2.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 2.5s ease;
+  -o-transition: padding 2.5s ease, transform 2.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 2.5s ease;
+  transition: padding 2.5s ease, transform 2.5s ease, opacity 0.5s ease, text-indent 0.5s ease, color 2.5s ease;
+}
+ul#mobile-main-menu li.mobile-item-slide a {opacity: 1; text-indent: 0;}
+/* -------------------------------------------------------------- */
+/* End Mobile Menu ------------------------------- */
+/* -------------------------------------------------------------- */
+
+
+
+@media screen and (min-width: 768px) {
+
+  ul#mobile-main-menu li a {font-size: 5vw;}
+
+}
